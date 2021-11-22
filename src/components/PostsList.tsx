@@ -10,10 +10,13 @@ type Props = {
 export const PostsList: React.FC<Props> = (props) => {
   const { selectedPostId, selectPost } = props;
   const [posts, setPosts] = useState([] as Post[]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
+    setLoader(false)
     getPosts()
       .then(response => setPosts(response));
+      setLoader(true);
   }, []);
 
   const handleChange = (id: number) => {
@@ -43,34 +46,47 @@ export const PostsList: React.FC<Props> = (props) => {
         <NewPostForm
           onAdd={addNewPost}
         />
-
-        <ul className="PostsList__list">
-          {posts.map(post => (
-            <li className="PostsList__item" key={post.id}>
-              <div>
-                {post.title}
-              </div>
-              <div className="PostsList__buttons">
-                <button
-                  type="button"
-                  className="PostsList__button button"
-                  onClick={() => deletePostFromServer(post.id)}
-                >
-                  Delete
-                </button>
-                <button
-                  type="button"
-                  className="PostsList__button button"
-                  onClick={() => handleChange(post.id)}
-                >
-                  {selectedPostId === post.id
-                    ? 'Close'
-                    : 'Open' }
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {loader ? (
+          <>
+          {posts.length !== 0
+          ? (
+            <>
+              <ul className="PostsList__list">
+                {posts.map(post => (
+                  <li className="PostsList__item" key={post.id}>
+                    <div>
+                      {post.title}
+                    </div>
+                    <div className="PostsList__buttons">
+                      <button
+                        type="button"
+                        className="PostsList__button button"
+                        onClick={() => deletePostFromServer(post.id)}
+                      >
+                        Delete
+                      </button>
+                      <button
+                        type="button"
+                        className="PostsList__button button"
+                        onClick={() => handleChange(post.id)}
+                      >
+                        {selectedPostId === post.id
+                          ? 'Close'
+                          : 'Open' }
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+          : <h3>Loading...</h3>}
+          </>
+        )
+        : (
+          <h3>This is the beginning of a blog page</h3>
+        )
+      }
       </div>
     </>
   );
