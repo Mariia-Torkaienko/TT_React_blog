@@ -42,6 +42,7 @@ export const PostDetails: React.FC<Props> = (props) => {
       <h2>Post details:</h2>
 
       <section className="PostDetails__post">
+        <h3>{post?.title}</h3>
         <p>{post?.body}</p>
       </section>
 
@@ -65,7 +66,6 @@ export const PostDetails: React.FC<Props> = (props) => {
                   >
                     X
                   </button>
-
                 </li>
               ))}
             </>

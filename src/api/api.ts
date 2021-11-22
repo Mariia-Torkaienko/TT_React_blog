@@ -50,3 +50,13 @@ export const getPostDetails = async (postId: number) => {
 export const deletePost = async (postId: number) => {
   return request(`posts/${postId}`, { method: 'DELETE' });
 };
+
+export const UpdatePost = async (postId: number) => {
+  return request (`posts/${postId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(postId),
+  });
+};

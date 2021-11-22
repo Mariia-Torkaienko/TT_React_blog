@@ -29,6 +29,7 @@ export const NewPostForm: React.FC<Props> = (props) => {
           name="title"
           placeholder="Add your title"
           className="NewPostForm__input"
+          required
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />

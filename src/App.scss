@@ -61,15 +61,15 @@ ul {
   &__sidebar {
     @extend %stretch-panel;
 
-    flex-basis: 60%;
+    flex-basis: 50%;
     border-color: blue;
   }
 
   &__content {
     @extend %stretch-panel;
 
-    flex-basis: 30%;
-    border-color: green;
+    flex-basis: 40%;
+    border-color: red;
   }
 }
 
@@ -171,7 +171,7 @@ ul {
     border-bottom: 1px solid #4d457b;
     font-family: inherit;
     font-size: 0.9rem;
-    padding: 10px 5px;
+    padding: 5px 5px 0;
     color: #4d457b;
   }
 

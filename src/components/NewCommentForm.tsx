@@ -27,6 +27,7 @@ export const NewCommentForm: React.FC<Props> = (props) => {
           name="body"
           placeholder="Type comment here"
           className="NewCommentForm__input"
+          required
           value={body}
           onChange={(event) => setBody(event.target.value)}
         />
