@@ -49,7 +49,7 @@ export const PostsList: React.FC<Props> = (props) => {
         {loader ? (
           <>
           {posts.length !== 0
-          ? (
+          ? ( // цей здоровий кусок коду який нижче варто винести в окремий компонент
             <>
               <ul className="PostsList__list">
                 {posts.map(post => (
