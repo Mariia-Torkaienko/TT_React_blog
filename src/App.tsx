@@ -12,7 +12,7 @@ const App: React.FC = () => {
         <div className="App__sidebar">
         <PostsList
             selectedPostId={postId}
-            selectPost={setPostId}
+            onSelectPost={setPostId}
           />
         </div>
 

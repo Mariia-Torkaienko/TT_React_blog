@@ -1,4 +1,5 @@
 export const BASE_URL = 'https://bloggy-api.herokuapp.com';
+// також було б круто винести поінти в const (comments, posts ...)
 
 export const request = async (url:string, item = {}) => {
   const response = await fetch(`${BASE_URL}/${url}`, item);
